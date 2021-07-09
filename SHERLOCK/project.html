@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SHERLOCK</title>
+<script language="javascript">
+ var z=0,t,i=0,hm=0,mm=5,sm=0;
+ var a=0,to=0;
+ var s=0,m=0,h=0;
+function point()
+{
+ if(a==0)
+ {
+  var sc=Number(document.getElementById("sco").innerHTML);
+   to=sc+5;
+  document.getElementById("sco").innerHTML=to;
+  var id=event.target.id;
+  var ob=id+'n';
+  var j=Number(document.getElementById("found").innerHTML);
+  j=j+1;
+  document.getElementById("found").innerHTML=j;
+  document.getElementById(id).shape="circle";
+  document.getElementById(id).coords="0,0,0";
+  document.getElementById(ob).style.color="black";
+  if(j==document.getElementById("tot").innerHTML)
+  {
+   var q=document.getElementById("clo").innerHTML;
+   alert("You Won   Time Taken:"+q+"   Score:"+to);
+   document.getElementById("clo").innerHTML=q;
+   document.getElementById("next").disabled=false;
+   clearTimeout(t);
+  }
+ } 
+}
+function timer()
+{
+ 
+  s++;
+  if(s>=60)
+  {
+    s=0;
+	m++;
+	if(m>=60)
+	{
+	  m=0;
+	  h++;
+	}
+  }
+  var time=h+":"+m+":"+s;
+  document.getElementById("next").disabled=true;
+  document.getElementById("clo").innerHTML=time;
+  document.getElementById("maxt").innerHTML=hm+":"+mm+":"+sm;
+  if(sm<=s)
+  {
+   if(mm<=m)
+   {
+    if(hm<=h) 
+	{
+	alert("Game Over :(   Score:"+to);
+	document.getElementById("sco").innerHTML=to;
+	document.getElementById("gameprint").src="sher2.jpg";
+	clearTimeout(t);
+	a=1;
+	}
+   }
+  }
+  if(a==0)
+  tim();
+}
+function tim()
+{
+   t=setTimeout(timer,1000);
+}
+function level()
+{
+  i++;
+  if(i<=5)
+ {
+  s=0;
+  m=0;
+  h=0;
+  a=0;
+  document.getElementById("found").innerHTML=0;
+  timer();
+  var c=1;
+  while(c<=15)
+  {
+    document.getElementById("ob"+c+"n").style.color="white";	
+	c++;
+  }
+  if(i==1)
+  {
+    document.getElementById("gameprint").src="gamep8.jpg";
+	mm=8;
+    document.getElementById("ob1").shape="poly";
+    document.getElementById("ob1").coords="1296,63,1297,84,1291,98,1280,112,1268,120,1254,127,1233,134,1219,135,1195,137,1195,127,1198,109,1163,72,1164,59,1182,31,1200,22,1219,14,1242,10,1272,9,1284,9,1301,16,1321,29,1302,51,1311,42,1316,36";
+    document.getElementById("ob1n").innerHTML="Hat";
+    document.getElementById("ob2").shape="poly";  
+    document.getElementById("ob2").coords="1149,451,1136,458,1126,465,1130,488,1145,500,1199,505,1208,499,1233,493,1241,489,1244,463,1228,452,1214,449,1208,459,1202,468,1192,472,1179,473,1165,471,1155,467";  
+    document.getElementById("ob2n").innerHTML="Belt";	
+	document.getElementById("ob3").shape="poly";
+	document.getElementById("ob3").coords="129,138,160,127,207,114,224,112,229,119,269,110,227,120,232,128,223,135,206,141,191,145,165,152,143,158,133,155,128,148";
+	document.getElementById("ob3n").innerHTML="Dynamite";
+	document.getElementById("ob4").shape="poly";
+	document.getElementById("ob4").coords="546,499,536,499,521,498,540,492,553,491,578,486,597,486,614,493,610,503,589,509,555,515,538,518,527,518,521,511,527,506";
+	document.getElementById("ob4n").innerHTML="Corn";
+	document.getElementById("ob5").shape="circle";
+	document.getElementById("ob5").coords="526,163,40";	
+	document.getElementById("ob5n").innerHTML="Spider";
+	document.getElementById("ob6").shape="poly";
+	document.getElementById("ob6").coords="842,583,853,584,863,593,880,595,900,598,925,596,938,587,938,573,912,563,887,563,869,565,874,556,864,552,850,544,837,546,826,551,816,561,816,570,826,575";
+	document.getElementById("ob6n").innerHTML="Tortoises";
+	document.getElementById("ob7").shape="poly";
+	document.getElementById("ob7").coords="606,460,593,471,609,473,632,472,644,468,650,463,665,460,683,455,696,453,718,454,728,450,754,454,745,458,729,461,739,470,725,470,717,464,703,469,687,471,684,480,675,480,672,472,660,472,642,478,625,480,607,480,594,479,586,473";
+	document.getElementById("ob7n").innerHTML="Reptile";
+	document.getElementById("ob8").shape="poly";
+	document.getElementById("ob8").coords="983,409,983,399,992,399,1000,402,1007,405,1009,413,1009,425,1000,428,991,432,987,442,986,451,977,448,979,440,976,433,975,426,990,420";
+	document.getElementById("ob8n").innerHTML="Teddy Bear";
+	document.getElementById("ob9").shape="poly";
+	document.getElementById("ob9").coords="368,492,381,502,393,506,416,506,429,499,438,488,436,473,423,466,410,462,397,460,384,463,375,467,367,471,360,479,364,486";
+	document.getElementById("ob9n").innerHTML="Compass";
+	document.getElementById("ob10").shape="poly";
+	document.getElementById("ob10").coords="949,179,962,181,955,184,957,192,949,199,937,205,924,205,916,208,903,209,894,205,881,208,869,206,860,201,856,190,860,184,867,188,868,197,878,199,887,199,897,191,885,186,878,180,872,173,876,165,884,160,899,150,888,152,877,152,869,150,873,144,882,144,890,144,895,138,888,133,883,123,892,117,903,114,919,116,919,127,912,133,912,143,922,143,934,144,941,148,930,151,913,152,931,161,936,167,938,175,930,185,917,189,919,197,927,198,940,195,946,188";
+	document.getElementById("ob10n").innerHTML="Anchor";
+	document.getElementById("ob11").shape="rect";
+	document.getElementById("ob11").coords="861,496,908,550";
+	document.getElementById("ob11n").innerHTML="Battery";
+	document.getElementById("ob12").shape="poly";
+	document.getElementById("ob12").coords="499,296,497,288,490,273,500,273,505,263,509,262,514,271,523,262,531,266,540,272,528,287,552,275,552,284,576,283,582,285,583,294,580,302,571,308,524,303";
+	document.getElementById("ob12n").innerHTML="Gloves";
+	document.getElementById("ob13").shape="rect";
+	document.getElementById("ob13").coords="1047,285,1013,377";
+	document.getElementById("ob13n").innerHTML="Dagger";
+	document.getElementById("ob14").shape="poly";
+	document.getElementById("ob14").coords="425,449,441,455,457,456,472,455,486,448,495,451,506,454,518,455,528,450,526,439,517,432,508,426,495,424,487,422,481,426,471,425,458,424,441,424,431,427,427,434";
+	document.getElementById("ob14n").innerHTML="Bangles";
+	document.getElementById("ob15").shape="poly";
+	document.getElementById("ob15").coords="726,79,799,54,834,90,827,111,828,121,828,131,788,145";
+	document.getElementById("ob15n").innerHTML="Greeting Card";
+	document.getElementById("next").disabled=true;
+   }
+   if(i==2)
+  {  
+    
+    document.getElementById("gameprint").src="gamep5n1.png";
+	mm=4;
+	sm=30;
+	document.getElementById("ob1").shape="poly";
+	document.getElementById("ob1").coords="560,455,568,456,566,446,557,381,567,376,575,378,573,371,561,368,531,369,531,378,543,379,548,386";
+	document.getElementById("ob1n").innerHTML="Sledge Hammer";
+	document.getElementById("ob2").shape="poly";
+	document.getElementById("ob2").coords="414,336,431,337,458,335,453,329,443,329,440,320,440,310,445,296,446,288,442,280,443,271,442,263,447,255,463,255,475,255,496,255,491,247,482,238,459,217,445,217,440,211,436,217,422,216,383,247,390,251,435,252,434,281,433,294,433,306,432,329";
+	document.getElementById("ob2n").innerHTML="Deco Table Lamp";
+	document.getElementById("ob3").shape="rect";
+	document.getElementById("ob3").coords="123,311,383,467";
+	document.getElementById("ob3n").innerHTML="Old TV";
+	document.getElementById("ob4").shape="rect";
+	document.getElementById("ob4").coords="1137,362,1236,428";
+	document.getElementById("ob4n").innerHTML="Wine Glass";
+	document.getElementById("ob5").shape="poly";
+	document.getElementById("ob5").coords="209,95,220,72,260,73,299,74,391,107,384,113,337,96,302,88,283,88,265,88" ;
+	document.getElementById("ob5n").innerHTML="Flintlock Riffle";
+	document.getElementById("ob6").shape="rect";
+	document.getElementById("ob6").coords="888,399,977,481";
+	document.getElementById("ob6n").innerHTML="Ladder";
+	document.getElementById("ob7").shape="poly";
+	document.getElementById("ob7").coords="110,251,114,244,102,246,93,244,88,228,94,220,93,210,111,203,149,203,164,201,166,210,154,222,160,233,163,241,188,248,178,260,178,273,155,272,153,255";
+	document.getElementById("ob7n").innerHTML="Old Phone";
+	document.getElementById("ob8").shape="poly";
+	document.getElementById("ob8").coords="1322,419,1298,417,1311,413,1311,401,1305,400,1292,357,1342,357,1328,401";
+	document.getElementById("ob8n").innerHTML="Silver Cup";
+	document.getElementById("ob9").shape="poly";
+	document.getElementById("ob9").coords="1040,588,1013,586,969,582,978,532,987,533,986,525,993,516,1004,511,1012,519,1018,526,1032,533";
+	document.getElementById("ob9n").innerHTML="Latern";
+	document.getElementById("ob10").shape="poly";
+	document.getElementById("ob10").coords="391,538,401,540,414,539,425,537,423,529,414,528,401,527,394,527,392,516,388,508,381,500,373,508,375,518,379,527,385,531";
+	document.getElementById("ob10n").innerHTML="Pocket Watch";
+	document.getElementById("ob11").shape="poly";
+	document.getElementById("ob11").coords="176,536,188,546,209,544,225,543,238,535,228,530,209,527,199,527,206,535";
+	document.getElementById("ob11n").innerHTML="Lighter";
+	document.getElementById("ob12").shape="poly";
+	document.getElementById("ob12").coords="815,384,814,346,931,349,929,378,924,395,922,404,908,406,898,405,876,406,856,405,839,405,839,393,828,385";
+	document.getElementById("ob12n").innerHTML="Chest";
+	document.getElementById("ob13n").innerHTML="";
+	document.getElementById("ob14n").innerHTML="";
+	document.getElementById("ob15n").innerHTML="";	
+	document.getElementById("tot").innerHTML=12;
+	document.getElementById("next").disabled=true;
+   }   
+   if(i==3)
+  {
+    mm=5;
+	sm=0;
+    document.getElementById("gameprint").src="gardens_oftime1.jpeg";
+	document.getElementById("ob1").shape="poly";
+	document.getElementById("ob1").coords="364,599,372,598,375,590,383,587,388,576,390,552,389,531,402,505,388,512,374,486,373,511,367,521,357,533,354,553,352,570,352,579";
+	document.getElementById("ob1n").innerHTML="Corn";
+	document.getElementById("ob2").shape="poly";
+	document.getElementById("ob2").coords="971,525,986,521,985,513,1011,518,1031,516,1044,508,1049,500,1059,511,1064,520,1064,529,1055,535,1043,540,1026,539,1012,536,1005,529";
+	document.getElementById("ob2n").innerHTML="Banana";
+	document.getElementById("ob3").shape="poly";
+	document.getElementById("ob3").coords="412,93,415,84,426,82,433,88,442,93,445,85,453,81,466,88,465,101,456,103,448,101,435,98,427,104,416,100";
+	document.getElementById("ob3n").innerHTML="Spectacles";
+	document.getElementById("ob4").shape="poly";
+	document.getElementById("ob4").coords="645,267,654,267,663,268,677,267,687,275,676,282,666,292,658,296,651,292,641,288,634,274";
+	document.getElementById("ob4n").innerHTML="Heart";
+	document.getElementById("ob5").shape="poly";
+	document.getElementById("ob5").coords="94,373,70,371,58,367,54,357,54,341,67,328,85,319,102,310,121,304,140,306,153,311,165,316,183,330,190,345,194,358,188,365,171,371,149,369,133,367,122,364";
+	document.getElementById("ob5n").innerHTML="Peacock";
+	document.getElementById("ob6").shape="poly";
+	document.getElementById("ob6").coords="923,444,914,445,907,436,904,419,904,403,914,392,925,385,937,378,952,379,968,383,980,390,988,398,990,412,989,423,982,438,973,444,964,443,968,431,971,420,974,405,965,396,957,388,943,386,928,395,920,401,916,415,918,426";
+	document.getElementById("ob6n").innerHTML="Horse Shoe";
+	document.getElementById("ob7").shape="poly";
+	document.getElementById("ob7").coords="336,464,310,466,296,466,278,462,257,464,256,451,233,442,240,433,261,445,272,446,284,445,301,445,309,446,323,434,330,444,341,446";
+	document.getElementById("ob7n").innerHTML="Locust";
+	document.getElementById("ob8").shape="poly";
+	document.getElementById("ob8").coords="799,580,809,573,821,569,831,566,845,567,857,571,867,588,879,587,887,593,896,590,889,584,880,578,873,572,866,565,855,560,843,556,828,555,814,560,803,563";
+	document.getElementById("ob8n").innerHTML="Sickel";
+	document.getElementById("ob9").shape="poly";
+	document.getElementById("ob9").coords="383,162,375,153,384,153,384,140,384,104,381,82,379,69,384,63,388,66,397,63,389,92,389,116,388,130,390,146,396,155,391,158,397,156";
+	document.getElementById("ob9n").innerHTML="Arrow";
+	document.getElementById("ob10").shape="poly";
+	document.getElementById("ob10").coords="468,397,479,400,492,400,504,401,515,399,527,398,528,359,519,347,504,338,489,342,477,348,470,357";
+	document.getElementById("ob10n").innerHTML="Cage";
+	document.getElementById("ob11").shape="poly";
+	document.getElementById("ob11").coords="674,380,680,389,688,392,697,394,708,394,718,396,726,387,736,378,732,369,720,362,709,361,694,361";
+	document.getElementById("ob11n").innerHTML="Egg";
+	document.getElementById("ob12").shape="poly";
+	document.getElementById("ob12").coords="856,403,840,395,835,382,836,369,843,355,856,347,865,350,877,356,887,366,894,382,891,391,881,402,869,405";
+	document.getElementById("ob12n").innerHTML="Acorn";
+	document.getElementById("ob13").shape="poly";
+	document.getElementById("ob13").coords="439,506,450,502,468,503,503,496,510,507,500,516,485,516,467,519,450,524,441,522,432,512";
+	document.getElementById("ob13n").innerHTML="Flashlight";
+	document.getElementById("ob14").shape="poly";
+	document.getElementById("ob14").coords="1060,311,1055,290,1041,263,1027,251,1007,250,994,250,981,253,971,264,969,279,974,290,986,301,996,307,1013,308,1028,304,1038,301,1046,293,1049,302";
+	document.getElementById("ob14n").innerHTML="Rope";
+	document.getElementById("ob15").shape="circle";
+	document.getElementById("ob15").coords="180,423,33";
+	document.getElementById("ob15n").innerHTML="Wheel";	
+	document.getElementById("tot").innerHTML=15;	
+	document.getElementById("next").disabled=true;
+   }   
+   if(i==4)
+  {
+    mm=5;
+	sm=0;
+    document.getElementById("gameprint").src="Hidden-Object-Games-41.jpg";
+	document.getElementById("ob1").shape="poly";
+	document.getElementById("ob1").coords="1244,510,1333,467,1320,458,1308,451,1294,445,1276,440,1259,438,1241,437,1227,436,1209,441,1193,445,1177,451,1162,457,1147,466,1137,474,1135,481,1138,493,1147,512";
+	document.getElementById("ob1n").innerHTML="Japanese Fan";
+	document.getElementById("ob2").shape="poly";
+	document.getElementById("ob2").coords="561,337,574,333,581,321,612,316,621,319,626,326,638,326,651,339,647,350,636,356,618,357,599,358,586,354,573,348";
+	document.getElementById("ob2n").innerHTML="Hat";
+	document.getElementById("ob3").shape="poly";
+	document.getElementById("ob3").coords="349,171,360,160,376,156,387,155,398,160,407,167,407,177,398,182,383,182,370,181,357,179";
+	document.getElementById("ob3n").innerHTML="Avocado";
+	document.getElementById("ob4").shape="poly";
+	document.getElementById("ob4").coords="366,479,391,484,384,493,377,505,377,517,380,530,383,547,384,567,393,568,405,567,416,561,421,567,424,576,424,588,422,596,412,595,401,595,383,597,364,597,354,593,352,584,353,575,360,570,363,559,363,540,364,520,362,508,361,492";
+	document.getElementById("ob4n").innerHTML="Axe";
+	document.getElementById("ob5").shape="poly";
+	document.getElementById("ob5").coords="182,262,192,262,200,261,206,267,213,271,219,280,222,289,221,297,214,304,204,306,185,306,174,309,173,299,174,288,168,280,170,268,175,257";
+	document.getElementById("ob5n").innerHTML="Squrriel";
+	document.getElementById("ob6").shape="poly";
+	document.getElementById("ob6").coords="701,540,732,538,762,533,776,541,781,548,773,555,752,556,738,553,729,546,713,549,701,548";
+	document.getElementById("ob6n").innerHTML="Gun";
+	document.getElementById("ob7").shape="poly";
+	document.getElementById("ob7").coords="583,215,593,210,603,215,601,223,599,233,601,244,609,243,608,234,613,225,623,232,618,247,612,256,599,258,588,260,580,256,591,241,589,227";
+	document.getElementById("ob7n").innerHTML="Telephone";
+	document.getElementById("ob8").shape="poly";
+	document.getElementById("ob8").coords="639,550,622,555,603,547,589,543,594,526,604,522,639,520";
+	document.getElementById("ob8n").innerHTML="Binocular";
+	document.getElementById("ob9").shape="poly";
+	document.getElementById("ob9").coords="347,178,332,173,324,179,315,182,305,182,296,175,303,163,285,155,291,150,308,156,319,159,338,162";
+	document.getElementById("ob9n").innerHTML="Cannon";
+	document.getElementById("ob10").shape="poly";
+	document.getElementById("ob10").coords="62,163,77,161,80,154,115,153,135,155,142,162,134,167,114,168,94,168,83,167";
+	document.getElementById("ob10n").innerHTML="Feather";
+	document.getElementById("ob11").shape="poly";
+	document.getElementById("ob11").coords="260,14,276,30,258,48,238,31";
+	document.getElementById("ob11n").innerHTML="Pendant";
+	document.getElementById("ob12").shape="poly";
+	document.getElementById("ob12").coords="1272,167,1364,167,1416,171,1465,172,1510,172,1516,178,1507,182,1272,185";
+	document.getElementById("ob12n").innerHTML="Telescope";
+	document.getElementById("ob13").shape="poly";
+	document.getElementById("ob13").coords="1075,70,1087,88,1092,95,1102,80,1110,71,1112,84,1099,98,1106,103,1098,109,1103,115,1113,122,1111,132,1098,134,1076,133,1078,123,1078,114,1075,105,1072,97,1069,82";
+	document.getElementById("ob13n").innerHTML="Eagle Momento";
+	document.getElementById("ob14").shape="poly";
+	document.getElementById("ob14").coords="1285,343,1272,341,1265,348,1269,365,1283,367,1295,373,1310,371,1324,371,1338,369,1353,369,1355,359,1352,349,1360,347,1357,339,1342,336,1315,336,1292,338";
+	document.getElementById("ob14n").innerHTML="Belt";
+	document.getElementById("ob15").shape="poly";
+	document.getElementById("ob15").coords="739,224,747,223,758,224,772,224,779,233,771,240,771,256,759,256,741,257,735,248,741,240,746,231";
+	document.getElementById("ob15n").innerHTML="Jug";
+	document.getElementById("tot").innerHTML=15;	
+	document.getElementById("next").disabled=true;
+   }   
+   if(i==5)
+  {
+    mm=4;
+	sm=30;
+    document.getElementById("gameprint").src="gamep6.bmp";
+	document.getElementById("ob1").shape="poly";
+	document.getElementById("ob1").coords="596,233,612,231,621,228,631,224,624,217,630,212,643,213,653,208,652,200,659,194,669,191,677,191,686,196,685,205,680,212,672,216,679,222,682,242,674,243,666,234,659,238,651,245,635,249,605,247,598,241";
+	document.getElementById("ob1n").innerHTML="Voodoo Doll";
+	document.getElementById("ob2").shape="circle";
+	document.getElementById("ob2").coords="1268,288,29";
+	document.getElementById("ob2n").innerHTML="Apple";
+	document.getElementById("ob3").shape="poly";
+	document.getElementById("ob3").coords="1194,402,1214,401,1210,390,1211,375,1219,368,1212,360,1200,351,1203,341,1189,335,1186,320,1179,323,1172,329,1155,331,1144,324,1135,330,1141,342,1158,342,1163,351,1142,352,1145,371,1159,381";
+	document.getElementById("ob3n").innerHTML="Coffee Grinder";
+	document.getElementById("ob4").shape="poly";
+	document.getElementById("ob4").coords="234,312,250,331,262,328,281,331,293,336,295,345,292,355,288,364,279,370,267,373,254,370,242,366,233,361,224,354,219,344,227,339,234,336,231,324,225,317";
+	document.getElementById("ob4n").innerHTML="Mortar";
+	document.getElementById("ob5").shape="poly";
+	document.getElementById("ob5").coords="994,459,1003,470,1015,473,1026,472,1038,472,1048,466,1050,458,1042,455,1039,442,1034,436,1031,427,1023,426,1022,434,1014,436,1011,448,1005,453";
+	document.getElementById("ob5n").innerHTML="Bell";
+	document.getElementById("ob6").shape="poly";
+	document.getElementById("ob6").coords="510,292,571,286,575,277,584,270,609,269,617,272,631,271,638,263,649,260,665,256,680,263,686,270,685,281,675,286,663,290,657,298,643,297,631,297,621,298,617,305,609,304,595,309,583,304,572,295,559,295,545,296,529,305,513,310";
+	document.getElementById("ob6n").innerHTML="Violin";
+	document.getElementById("ob7").shape="poly";
+	document.getElementById("ob7").coords="620,0,618,8,626,14,628,21,636,24,637,32,646,36,655,35,667,26,665,34,661,41,619,39,612,34,607,26,604,13,609,2";
+	document.getElementById("ob7n").innerHTML="Moon";
+	document.getElementById("ob8").shape="poly";
+	document.getElementById("ob8").coords="778,599,794,587,832,561,908,583,890,599";
+	document.getElementById("ob8n").innerHTML="Ancient Parchment";
+	document.getElementById("ob9").shape="poly";
+	document.getElementById("ob9").coords="677,413,659,397,630,400,628,391,628,380,621,370,611,369,584,355,568,354,551,360,544,368,550,372,553,380,557,397,558,413,559,421,569,458,578,463,593,466,608,466,627,464,644,458,659,452";
+	document.getElementById("ob9n").innerHTML="Human Head";
+	document.getElementById("ob10").shape="poly";
+	document.getElementById("ob10").coords="462,38,450,34,448,26,438,35,414,39,396,38,377,31,404,34,417,30,433,23,459,4,470,0,498,0,531,19,559,37";
+	document.getElementById("ob10n").innerHTML="Ox Skull";
+	document.getElementById("ob11").shape="poly";
+	document.getElementById("ob11").coords="449,449,458,445,470,447,487,443,492,436,490,422,486,405,480,386,468,379,449,373,425,370,406,373,397,376,396,389,383,394,382,406,384,428,399,439";
+	document.getElementById("ob11n").innerHTML="Rope";
+	document.getElementById("ob12").shape="poly";
+	document.getElementById("ob12").coords="440,528,455,530,484,531,494,527,548,537,556,545,556,577,552,596,531,597,516,597,490,593,465,591,457,591,404,588,421,551";
+	document.getElementById("ob12n").innerHTML="Torn Book";
+	document.getElementById("ob13n").innerHTML="";
+	document.getElementById("ob14n").innerHTML="";
+	document.getElementById("ob15n").innerHTML="";	
+	document.getElementById("tot").innerHTML=12;	
+	document.getElementById("next").disabled=true;
+	}
+   }
+ else
+ {
+   alert("Congratulations you have won the Game");
+ }  
+  
+}
+</script>
+<style>
+a:link,a:visited
+{
+  text-decoration:none;
+  background-color:white;
+  font-size:15px;
+  font-family:Calibri;
+  border:solid 1px black;
+  color:black;
+}
+a:hover
+{
+ background-color:lightgray;
+}
+a:active
+{
+  background-color:white;
+  color:black;
+}
+
+</style>
+</head>
+<body background="compass.jpg" onload="timer()">
+<img id="gameprint" src="gamep3.png" height="600" width="1520" usemap="#game-map"/>
+<map name="game-map">
+<area onclick="point()" id="ob15" coords="588,430,598,426,614,425,626,426,638,428,647,432,651,441,663,440,675,447,677,460,672,470,664,474,655,475,647,480,636,487,626,488,615,489,602,489,590,484,581,477,582,456,582,439" shape="poly"/>
+<area onclick="point()" id="ob2" coords="812,512,820,507,829,500,809,498,791,498,777,499,757,503,741,503,724,505,718,511,726,519,737,525,753,526,776,528,793,521,802,520,810,523,824,524,832,525,844,527,858,527,874,529,885,531,903,531,921,536,930,529,911,524,894,521,872,516,852,518" shape="poly">
+<area onclick="point()" id="ob3" coords="399,195,402,186,405,180,412,175,422,173,430,173,438,179,443,185,447,194,450,203,450,212,441,219,426,224,415,225,404,221,396,212,395,203" shape="poly">
+<area onclick="point()" id="ob4" coords="467,500,480,505,487,501,492,489,505,491,520,493,544,495,567,497,587,500,579,494,535,491,512,485,485,481,473,488" shape="poly">
+<area onclick="point()" id="ob5" coords="1385,399,1384,383,1395,372,1409,372,1437,378,1504,407,1510,418,1508,429,1489,436,1460,432,1444,427,1401,408,1391,404" shape="poly">
+<area onclick="point()" id="ob6" coords="124,213,118,198,118,178,123,166,138,173,150,170,163,161,169,177,173,195,166,208,148,195" shape="poly">
+<area onclick="point()" id="ob7" coords="272,115,284,111,295,108,303,107,302,97,296,87,289,71,298,72,312,72,322,70,331,66,337,60,344,66,364,76,379,82,393,80,398,72,389,66,373,60,354,52,346,50,343,41,337,29,330,22,319,21,308,19,298,19,288,19,277,18,268,22,263,29,259,38,263,52,264,64,265,78,264,86,267,101,269,108" shape="poly">
+<area onclick="point()" id="ob8" coords="370,434,371,448,376,463,379,477,379,503,379,520,380,531,367,558,361,575,350,587,362,594,379,594,395,594,407,588,417,581,427,567,435,553,440,542,430,514,424,496,422,486,405,471,395,470,393,458,403,450,418,445,432,443,434,427,424,420,411,417,401,417,384,423" shape="poly">
+<area onclick="point()" id="ob9" coords="1427,226,1424,217,1430,213,1438,217,1447,214,1458,210,1474,208,1486,208,1500,204,1500,217,1504,224,1499,232,1490,238,1484,244,1479,254,1473,264,1470,277,1467,287,1461,299,1449,328,1425,376,1423,313,1423,275,1419,265,1419,250,1426,246,1420,237" shape="poly">
+<area onclick="point()" id="ob10" coords="955,303,943,305,937,316,935,330,936,343,944,345,950,335,957,322,959,311,962,302,972,301,983,300,995,299,1007,304,1007,313,1006,323,1006,332,1007,340,999,346,988,345,982,335,977,325,973,313" shape="poly">
+<area onclick="point()" id="ob11" coords="1111,130,1104,119,1104,108,1114,103,1125,103,1140,103,1155,104,1175,105,1180,117,1180,128,1170,138,1144,138,1132,136" shape="poly">
+<area onclick="point()" id="ob12" coords="201,340,211,334,216,328,224,332,236,332,243,327,253,327,261,332,272,326,275,317,262,314,253,311,242,309,228,309,218,310,204,303,189,303,180,314,180,327,186,335" shape="poly">
+<area onclick="point()" id="ob13" coords="1264,144,1271,139,1290,138,1301,139,1313,139,1312,153,1312,167,1312,176,1314,188,1313,197,1298,199,1279,198,1274,184,1277,174,1279,163,1278,153,1279,145" shape="poly">
+<area onclick="point()" id="ob14" coords="1211,592,1219,578,1233,561,1239,551,1243,536,1253,525,1264,514,1273,508,1284,509,1298,511,1307,511,1309,501,1323,500,1334,505,1347,509,1363,512,1373,521,1361,519,1351,515,1340,514,1339,525,1348,532,1353,544,1358,554,1362,562,1356,570,1350,562,1340,537,1328,530,1324,538,1329,544,1334,551,1342,556,1348,570,1345,583,1344,592,1335,596,1323,597,1309,598,1286,598,1269,598,1253,598,1247,591,1239,586,1240,574,1243,567,1254,566,1260,553,1266,548,1278,545,1286,545,1293,542,1306,530,1307,520,1294,518,1277,516,1261,527" shape="poly">
+<area onclick="point()" id="ob1" coords="755,348,755,334,756,320,754,304,762,291,769,283,778,275,787,270,805,267,810,258,820,235,823,223,817,217,824,215,834,226,844,219,847,228,859,223,862,235,858,248,848,263,839,279,834,293,821,311,815,326,805,343,794,338,777,345,778,356,764,352" shape="poly">
+</map>
+<table>
+<tr><th><font id="found" color="white">0</font></th><th><font color="white">Of</font></th><th><font id="tot" color="white">15</font></th><th><font color="white">Objects Found</font></th></tr>
+</table>
+<table align="left" cellspacing="8">
+<tr><td><font face="Ink Free" color="white" size="4"><b id="ob1n">Broken Vase</b></font></td><td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob2n">Shovel</b></font></td>
+<td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob3n">Clock</b></font></td><td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob4n">Pipe</b></font></td>
+<td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob5n">Sandal</b></font></td><td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob6n">Spider</b></font></td>
+<td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob7n">Belt</b></font></td><td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob8n">Boot</b></font></td>
+<td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob9n">Saw</b></font></td><td>&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td><font face="Ink Free" color="white" size="4"><b id="ob10n">Camera</b></font></td><td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob11n">Bowl</b></font></td><td>&nbsp;&nbsp;&nbsp;</td>
+<td><font face="Ink Free" color="white" size="4"><b id="ob12n">Tap</b></font></td><td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob13n">Hour Glass</b></font></td><td>&nbsp;&nbsp;&nbsp;</td>
+<td><font face="Ink Free" color="white" size="4"><b id="ob14n">Fire Extinguisher</b></font></td><td>&nbsp;&nbsp;&nbsp;</td><td><font face="Ink Free" color="white" size="4"><b id="ob15n">Mug</b></font></td></tr>
+</table>
+<table border="2" align="right">
+<tr><td><font face="Viner Hand ITC" color="white" size="5"><b>TIME</b></font></td><td><font face="Viner Hand ITC" color="white" size="5"><b id="clo"></b></font></td></tr>
+<tr><td><font face="Viner Hand ITC" color="white" size="5"><b>SCORE</b></font></td><td><font face="Viner Hand ITC" color="white" size="5"><b id="sco">0</b></font></td></tr>
+<tr><td><font face="Viner Hand ITC" color="white" size="5"><b>Search Time</b></font></td><td><font face="Viner Hand ITC" color="white" size="5"><b id="maxt"></b></font></td></tr>
+<tr><td colspan="2" align="middle"><input type="button" id="next" onclick="level()" value="Next Level"/></td></tr>
+<tr><td colspan="2" align="middle"><a href="frontpr.html">Back To Home Page</a></td></tr>
+</table>
+</body>
+</html>
